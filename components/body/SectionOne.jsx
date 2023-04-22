@@ -13,7 +13,7 @@ const SectionOne = () => {
                 <span className="lg:mt-[5vh] mt-[2vh] lg:mb-0 mb-10">Each day you&apos;ll receive a selection of discounted titles, handpicked to match your reading taste.</span>
             </div>
         </div>
-        <div className="lg:flex hidden items-center justify-center my-10">
+        <div className="lg:flex hidden items-center justify-center">
             <Image src="/assets/right-arrow.png" height={150} width={150} alt="right-arrow" />
         </div>
         <div className="lg:hidden flex items-center justify-center my-10">

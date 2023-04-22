@@ -10,10 +10,10 @@ const SectionTwo = () => {
             </div>
             <div className="lg:w-[45%] flex flex-col items-center justify-center">
                 <h2 className="lg:text-[42px] lg:mt-0 mt-4 lg:text-start text-center text-[32px] font-bold w-full">Discover new books & authors at great prices.</h2>
-                <span className="lg:mt-[5vh] mt-[2vh] lg:mb-0 mb-10">With discounts up to 95% off and free ebooks daily, you&apos;ll enjoy hours of reading for less.</span>
+                <span className="lg:mt-[5vh] mt-[2vh] lg:mb-0 mb-10">With <span className="font-bold">{" "} discounts up to 95% off {" "}</span> and free ebooks daily, you&apos;ll enjoy hours of reading for less.</span>
             </div>
         </div>
-        <div className="lg:flex hidden items-center justify-center my-10">
+        <div className="lg:flex hidden items-center justify-center">
             <Image src="/assets/left-arrow.jpeg" height={150} width={150} alt="left-arrow" />
         </div>
         <div className="lg:hidden flex items-center justify-center my-10">

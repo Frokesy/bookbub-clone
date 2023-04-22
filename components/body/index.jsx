@@ -2,6 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import SectionOne from './SectionOne'
 import SectionTwo from './SectionTwo'
+import SectionThree from './SectionThree'
 
 const Body = () => {
   return (
@@ -33,6 +34,7 @@ const Body = () => {
 
       <SectionOne />
       <SectionTwo />
+      <SectionThree />
     </div>
   )
 }
