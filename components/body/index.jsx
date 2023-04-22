@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import SectionOne from './SectionOne'
+import SectionTwo from './SectionTwo'
 
 const Body = () => {
   return (
@@ -31,6 +32,7 @@ const Body = () => {
       </div>
 
       <SectionOne />
+      <SectionTwo />
     </div>
   )
 }
