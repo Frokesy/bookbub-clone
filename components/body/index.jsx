@@ -5,6 +5,7 @@ import SectionTwo from './SectionTwo'
 import SectionThree from './SectionThree'
 import SectionFour from './SectionFour'
 import Feedback from './Feedback'
+import Recommendations from './Recommendations'
 
 const Body = () => {
   return (
@@ -23,7 +24,7 @@ const Body = () => {
           </div>
 
           <span className="flex items-center justify-center my-3">or</span>
-          <div className="flex items-center justify-center py-3 w-full border border-[#B9BCBE] space-x-2 text-[14px]">
+          <div className="flex items-center justify-center py-2 w-full border border-[#B9BCBE] space-x-2 text-[14px]">
             <Image src="/assets/google.png" width={40} height={40} alt="google-icon" />
             <span>Continue with Google</span>
           </div>
@@ -38,7 +39,7 @@ const Body = () => {
       <SectionTwo />
       <SectionThree />
       <SectionFour />
-      <div className="mt-[5vh] lg:w-[75vw] mx-auto">
+      <div className="mt-[5vh] lg:w-[70vw] mx-auto">
         <h2 className="text-center font-bold text-[42px]">Join millions of happy readers.</h2>
           <div className="flex lg:flex-row flex-col lg:space-x-10 mt-[8vh] items-center justify-between">
             <Feedback 
@@ -58,6 +59,7 @@ const Body = () => {
             />
           </div>
       </div>
+      <Recommendations />
 
     </div>
   )
