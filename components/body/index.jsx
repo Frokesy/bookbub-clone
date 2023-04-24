@@ -4,6 +4,7 @@ import SectionOne from './SectionOne'
 import SectionTwo from './SectionTwo'
 import SectionThree from './SectionThree'
 import SectionFour from './SectionFour'
+import Feedback from './Feedback'
 
 const Body = () => {
   return (
@@ -37,6 +38,27 @@ const Body = () => {
       <SectionTwo />
       <SectionThree />
       <SectionFour />
+      <div className="mt-[5vh] lg:w-[75vw] mx-auto">
+        <h2 className="text-center font-bold text-[42px]">Join millions of happy readers.</h2>
+          <div className="flex lg:flex-row flex-col lg:space-x-10 mt-[8vh] items-center justify-between">
+            <Feedback 
+            comment="I would tell anyone to just sign up without reservation. I now have more books than I can read in a lifetime."
+            user="Suzie M."
+            address="Auburn, WA"
+            />
+            <Feedback 
+            comment="There are series I would have never discovered if it weren’t for BookBub, and I always feel like I got a deal, always."
+            user="Ellyn C."
+            address="Huntington Beach, CA"
+            />
+            <Feedback 
+            comment="I actually download several books a week... I would say I’ve saved approximately $40 or more each month using BookBub."
+            user="Mona E."
+            address="Stockton, CA"
+            />
+          </div>
+      </div>
+
     </div>
   )
 }
