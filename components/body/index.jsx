@@ -1,16 +1,30 @@
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import SectionOne from './SectionOne'
 import SectionTwo from './SectionTwo'
 import SectionThree from './SectionThree'
 import SectionFour from './SectionFour'
 import Feedback from './Feedback'
 import Recommendations from './Recommendations'
+import { gsap } from 'gsap'
 
 const Body = () => {
+  const bodyRef = useRef(null)
+  useEffect(() => {
+    gsap.fromTo(bodyRef.current.children, { 
+      y: 100, 
+      opacity: 0 
+    }, { 
+      y: 0, 
+      opacity: 1, 
+      duration: 2, 
+      stagger: 0.3, 
+      ease: "power3.out", 
+     });
+  }, []);
   return (
     <div>
-      <div className="lg:mt-[8vh] mt-[3vh] lg:w-[75vw] lg:space-x-[5vw] mx-auto flex lg:flex-row flex-col justify-between">
+      <div ref={bodyRef} className="lg:mt-[8vh] mt-[3vh] lg:w-[75vw] lg:space-x-[5vw] mx-auto flex lg:flex-row flex-col justify-between">
         <div className="lg:w-[40%] w-[90vw] mx-auto lg:text-start text-center">
           <h2 className="lg:text-[46px] text-[32px] font-extrabold lg:pb-6 pb-2">Amazing deals on bestselling ebooks</h2>
           <span className="lg:text-[20px] text-[16px] font-bold lg:text-start">Join for 

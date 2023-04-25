@@ -1,8 +1,21 @@
-import React from 'react'
+import React,{ useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
 
 const NavBar = () => {
+    const nav = useRef(null)
+    useEffect(() => {
+        gsap.fromTo(nav.current, {  
+            opacity: 0 
+        }, { 
+            y: 0, 
+            opacity: 1, 
+            duration: 1, 
+            ease: "easeIn",
+            delay: 1.2,
+        });
+    }, [])
   return (
-    <div>
+    <div ref={nav}>
         <div className="lg:w-[69vw] w-[92vw] mx-auto mt-4 flex justify-between items-center">
             <div className="flex justify-between space-x-[8vw] items-center">
                 <h2 className="text-[#F44336] font-semibold text-[26px]">BookBub</h2>
