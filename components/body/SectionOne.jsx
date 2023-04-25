@@ -6,11 +6,11 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 
 const SectionOne = () => {
     const textRef = useRef(null)
-    const sectionOneRef = useRef(null)
+    const sectionRef = useRef(null)
     gsap.registerPlugin(ScrollTrigger)
           useEffect(() => {
             let proxy = { skew: 0 },
-            skewSetter = gsap.quickSetter(sectionOneRef.current, "skewY", "deg"),
+            skewSetter = gsap.quickSetter(sectionRef.current, "skewY", "deg"),
             clamp = gsap.utils.clamp(-20, 20);
             ScrollTrigger.create({
                 onUpdate: (self) => {
@@ -27,7 +27,7 @@ const SectionOne = () => {
                     }
                 }
             });
-            gsap.fromTo(sectionOneRef.current.children, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power3.out", scrollTrigger: { trigger: sectionOneRef.current, start: "top 80%" } });
+            gsap.fromTo(sectionRef.current.children, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power3.out", scrollTrigger: { trigger: sectionRef.current, start: "top 80%" } });
 
             }, []);
 
@@ -44,18 +44,17 @@ const SectionOne = () => {
                 y: 0,
                 scale: 1,
                 duration: 2,
-                ease: "back.out(1.7)",
+                ease: "easeIn",
                 scrollTrigger: {
-                trigger: sectionOneRef.current,
+                trigger: sectionRef.current,
                 start: "top center",
-                end: "bottom top",
+                end: "bottom center",
                 scrub: false,
                 },
             }
             );
         }, []);
 
-        //for arrows
         useEffect(() => {
             gsap.fromTo(
             ".right-arrow",
@@ -93,18 +92,18 @@ const SectionOne = () => {
                 y: 0,
                 scale: 1,
                 duration: 2,
-                ease: "back.out(1.7)",
+                ease: "easeInOut",
                 scrollTrigger: {
-                trigger: ".down-arrow",
+                trigger: textRef.current,
                 start: "top center",
                 end: "bottom top",
-                scrub: false,
+                scrub: true,
                 },
             }
             );
         }, []);
   return (
-    <div ref={sectionOneRef}>
+    <div ref={sectionRef}>
         <div className="flex lg:flex-row flex-col-reverse justify-between lg:w-[75vw] w-[90vw] mx-auto">
             <div className="lg:w-[50%] image">
                 <Image src="/assets/coffee.png" height={700} width={700} alt="side-pane" />

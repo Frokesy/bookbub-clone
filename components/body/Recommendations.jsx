@@ -1,14 +1,42 @@
+import React, { useEffect, useRef } from 'react'
+import { gsap } from 'gsap'
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import Image from 'next/image'
-import React from 'react'
 
 const Recommendations = () => {
+    const textRef = useRef(null)
+  const sectionRef = useRef(null)
+  gsap.registerPlugin(ScrollTrigger)
+        useEffect(() => {
+          let proxy = { skew: 0 },
+          skewSetter = gsap.quickSetter(sectionRef.current, "skewY", "deg"),
+          clamp = gsap.utils.clamp(-20, 20);
+          ScrollTrigger.create({
+              onUpdate: (self) => {
+                  let skew = clamp(self.getVelocity() / -300);
+                  if (Math.abs(skew) > Math.abs(proxy.skew)) {
+                      proxy.skew = skew;
+                      gsap.to(proxy, {
+                          skew: 0,
+                          duration: 0.8,
+                          ease: "power3",
+                          overwrite: true,
+                          onUpdate: () => skewSetter(proxy.skew)
+                      });
+                  }
+              }
+          });
+          gsap.fromTo(sectionRef.current.children, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1, stagger: 0.2, ease: "power3.out", scrollTrigger: { trigger: sectionRef.current, start: "top 80%" } });
+
+          }, []);
+
   return (
-    <div>
+    <div ref={sectionRef}>
         <div className="flex lg:flex-row flex-col-reverse justify-between lg:w-[85vw] lg:pr-10 mt-[10vh] w-[90vw] mx-auto">
             <div className="lg:w-[50%] lg:pr-0 pr-6 lg:mt-0 mt-10">
                 <Image src="/assets/sign-up-iphone_2x.png" height={700} width={700} alt="kindle-ice-tea_2x" />
             </div>
-            <div className="lg:w-[45%] flex flex-col justify-center">
+            <div ref={textRef} className="lg:w-[45%] flex flex-col justify-center">
                 <h2 className="lg:text-[16px] lg:mt-0 mt-4 lg:text-start text-center text-[14px] uppercase font-semibold">Join Bookbub</h2>
                 <span className="lg:text-[42px] lg:mt-0 mt-4 lg:text-start text-center text-[32px] font-bold w-full">Get your own, personalized recommendations:</span>
                                 
